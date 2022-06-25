@@ -1,0 +1,20 @@
+package com.dipsscor.view;
+
+import com.vaadin.flow.component.html.Label;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+@Route("textboxview")
+@PageTitle("dipsscor | TexBox")
+public class TextBoxExample extends VerticalLayout{
+	
+	public TextBoxExample() {
+		Label label = new Label("\nThis is Tex Box View");
+		TextField text1 = new TextField();
+		text1.setPlaceholder("Simple Text Box");
+		add(label,text1);
+	}
+
+}

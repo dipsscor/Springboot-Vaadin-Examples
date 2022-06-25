@@ -1,0 +1,41 @@
+package com.dipsscor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.grid.Grid;
+import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.Route;
+
+@Route
+public class MainView extends VerticalLayout{
+	
+	private static final Logger log = LoggerFactory.getLogger(MainView.class);
+	
+	CustomerRepository repository;
+	Grid<Customer> grid;
+	
+	public MainView(CustomerRepository repo) {
+		this.repository = repo;
+		this.grid = new Grid<>(Customer.class);
+		
+		List<Customer> data = repository.findAll();
+		//grid.setItems(data);
+		grid.addColumn(Customer::getFirstName);
+		add(grid);
+
+	}
+	
+	private void listCustomers() {
+		List<Customer> data = repository.findAll();
+		log.info(""+data.size());
+		grid.setItems(repository.findAll());
+	}
+
+}

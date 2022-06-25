@@ -1,0 +1,11 @@
+package com.dipsscor.view;
+
+import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.router.PageTitle;
+import com.vaadin.flow.router.Route;
+
+@Route("listCustomer")
+@PageTitle("Customer | Vaadin CRM")
+public class ListView extends VerticalLayout{
+
+}
